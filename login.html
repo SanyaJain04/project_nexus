@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- STYLE -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+ <div class="form-container">
+    <div class="col col-1">
+      <div class="image-layer">
+        <img src="white-outline.png" class="form-image-main">
+        <img src="dots.png" class="form-image dots">
+        <img src="coin.png" class="form-image coin">
+        <img src="spring.png" class="form-image spring">
+        <img src="rocket.png" class="form-image rocket">
+        <img src="cloud.png" class="form-image cloud">
+        <img src="stars.png" class="form-image stars">
+      </div>
+      <p class="featured-words">Get started !!</p>
+    </div>
+    <div class="col col-2">
+      <div class="btn-box">
+        <button class="btn btn-1" id="login">Sign In</button>
+        <button class="btn btn-2" id="register">Sign Up</button>
+      </div>
+      <div class="login-form" id="login-form">
+        <div class="form-title">
+          <span>Sign In</span>
+        </div>
+        <div class="form-inputs">
+          <div class="input-box">
+            <input type="text" placeholder="Username" id="loginUsername" class="input-field" required>
+            <i class="bx bx-user icon"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="Password" id="loginPassword" class="input-field" required>
+            <i class="bx bx-lock-alt icon"></i>
+          </div>
+          <div class="forget-pass">
+            <a href="#">Forgot Password</a>
+          </div>
+          <div class="input-box">
+            <button class="input-submit" onclick="validateLoginForm()">
+              <span>Sign In</span>
+              <i class="bx bx-right-arrow-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div class="social-login">
+          <i class="bx bxl-google"></i> 
+          <i class="bx bxl-linkedin"></i> 
+          <i class="bx bxl-twitter"></i> 
+          <i class="bx bxl-github"></i> 
+        </div>
+      </div>
+      <!-- signup -->
+      <form id="register-form">
+        <div class="register-form">
+          <div class="form-title">
+            <span>Create Account</span>
+          </div>
+          <div class="form-inputs">
+            <div class="input-box">
+              <input type="email" id="registerEmail" placeholder="Email" class="input-field" required>
+              <i class="bx bx-envelope icon"></i>
+            </div>
+            <div class="input-box">
+              <input type="text" id="registerUsername" placeholder="Username" class="input-field" required>
+              <i class="bx bx-user icon"></i>
+            </div>
+            <div class="input-box">
+              <input type="password" id="registerPassword" placeholder="Password" class="input-field" required>
+              <i class="bx bx-lock-alt icon"></i>
+            </div>
+            <div class="forget-pass">
+              <a href="#">Forgot Password</a>
+            </div>
+            <div class="input-box">
+              <button class="input-submit" onclick="validateRegisterForm()">
+                <span>Sign Up</span>
+                <i class="bx bx-right-arrow-alt"></i>
+              </button>
+            </div>
+          </div>
+          <div class="social-login">
+            <i class="bx bxl-google"></i> 
+            <i class="bx bxl-linkedin"></i> 
+            <i class="bx bxl-twitter"></i> 
+            <i class="bx bxl-github"></i> 
+          </div>
+        </div>
+      </form>
+    </div>
+ </div>
+    <script src="login.js"></script>
+    <script>
+      function validateLoginForm() {
+        var username = document.getElementById('loginUsername').value;
+        var password = document.getElementById('loginPassword').value;
+
+        if (username === "" || password === "") {
+          alert("Please fill out all fields.");
+          return false;
+        }
+        alert("Login successful!");
+        return true;
+      }
+
+      function validateRegisterForm() {
+        var email = document.getElementById('registerEmail').value;
+        var username = document.getElementById('registerUsername').value;
+        var password = document.getElementById('registerPassword').value;
+
+        if (email === "" || username === "" || password === "") {
+          alert("Please fill out all fields.");
+          return false;
+        }
+
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return false;
+        }
+        alert("Registration successful!");
+        return true;
+      }
+    </script>
+</body>
+</html>
